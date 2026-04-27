@@ -19,6 +19,8 @@ body {
   color: var(--black);
   font-size: 14px;
   line-height: 1.65;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* NAV */
@@ -470,6 +472,8 @@ section {
   border-radius: 24px;
   padding: 3rem;
   color: #fff;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .contact-card h3 {
@@ -510,7 +514,12 @@ section {
 }
 
 .contact-row-label { color: #6b7280; font-size: 10.2px; min-width: 60px; }
-.contact-row-val { color: #fff; font-weight: 400; }
+.contact-row-val { 
+  color: #fff; 
+  font-weight: 400;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
 
 .contact-info {
   padding: 2rem 0;
@@ -624,12 +633,7 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .hero { flex-direction: column-reverse; gap: 2rem; }
-  .hero-photo { width: 100%; height: 280px; }
-  .projects-grid, .skills-layout, .contact-grid, .cv-grid { grid-template-columns: 1fr; }
-  .hero-name {
-    font-size: 44.2px;
-  }
+  /* Navigation */
   nav {
     padding: 1rem;
     height: auto;
@@ -640,5 +644,210 @@ footer {
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: 0.75rem;
+  }
+  .nav-links a {
+    font-size: 13px;
+  }
+  
+  /* Hero Section */
+  .hero { 
+    flex-direction: column-reverse; 
+    gap: 2rem;
+    padding: 60px 1.5rem 2rem !important;
+  }
+  .hero-photo { width: 100%; height: 250px; }
+  .hero-name {
+    font-size: 40px;
+  }
+  .hero-eyebrow {
+    font-size: 9px;
+  }
+  .hero-sub {
+    font-size: 15px;
+  }
+  .hero-tags {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tag {
+    font-size: 12px;
+    padding: 0.4rem 0.8rem;
+  }
+  .hero-cta {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  /* All Sections - Mobile Padding */
+  section {
+    padding: 3rem 1.5rem !important;
+  }
+  
+  /* Über mich section */
+  #ueber-mich > div {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  #ueber-mich p {
+    font-size: 15px !important;
+  }
+  
+  /* Projects Grid */
+  .projects-grid { 
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+  }
+  .project-card {
+    padding: 1.5rem;
+  }
+  .project-title {
+    font-size: 16px;
+  }
+  .project-desc {
+    font-size: 14px;
+  }
+  
+  /* Bonus Project */
+  .bonus-project a > div {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  .bonus-project .project-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  /* Skills Layout */
+  .skills-layout { 
+    grid-template-columns: 1fr; 
+    gap: 2rem;
+  }
+  .skill-group-label {
+    font-size: 11px;
+  }
+  .skill-pill {
+    font-size: 12px;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  /* Werdegang */
+  .cv-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .werdegang-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .cv-timeline {
+    padding-left: 1.5rem;
+  }
+  .cv-timeline::before {
+    left: 0;
+    width: 1px;
+  }
+  .cv-item {
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+  }
+  .cv-item::before {
+    left: -2rem;
+    width: 6px;
+    height: 6px;
+    top: 6px;
+  }
+  .cv-period {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+  .cv-role {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .cv-org {
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+  }
+  .cv-bullets li {
+    font-size: 12px;
+    padding-left: 0.75rem;
+    margin-bottom: 3px;
+  }
+  
+  /* Contact Grid */
+  .contact-grid { 
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+  }
+  .contact-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  .contact-card h3 {
+    font-size: 20px;
+    margin-bottom: 0.75rem;
+  }
+  .contact-card p {
+    font-size: 12px;
+    margin-bottom: 1.5rem;
+  }
+  .contact-detail {
+    gap: 0.5rem;
+  }
+  .contact-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    font-size: 14px;
+  }
+  .contact-row-label {
+    font-size: 9px;
+    min-width: auto;
+  }
+  .contact-row-val {
+    font-size: 13px;
+  }
+  .contact-info {
+    padding: 1.5rem 0;
+  }
+  .info-block {
+    margin-bottom: 1.5rem;
+  }
+  .info-label {
+    font-size: 8px;
+    margin-bottom: 0.3rem;
+  }
+  .info-value {
+    font-size: 14px;
+  }
+  .info-sub {
+    font-size: 10px;
+  }
+  .contact-row[style*="margin-top"] a {
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Divider */
+  .divider {
+    margin: 2rem 0;
+  }
+  
+  /* Section Header */
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  .section-num {
+    font-size: 32px;
+  }
+  .section-title {
+    font-size: 32px;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 1.5rem;
+    font-size: 10px;
   }
 }
