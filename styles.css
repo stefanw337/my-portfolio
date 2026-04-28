@@ -43,6 +43,36 @@ nav {
   letter-spacing: 0.5px;
 }
 
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -180,6 +210,7 @@ nav {
   font-weight: 500;
   padding: 4px 12px;
   border-radius: 100px;
+  border: 1.5px solid var(--accent);
 }
 
 /* UTILITIES */
@@ -369,7 +400,7 @@ section {
 
 .skill-pill {
   background: var(--white);
-  border: 1px solid var(--border);
+  border: 1.5px solid #d1ccc5;
   border-radius: 100px;
   padding: 6px 16px;
   font-size: 11.0px;
@@ -512,19 +543,29 @@ section {
 .contact-row-label { color: #6b7280; font-size: 10.2px; min-width: 60px; }
 .contact-row-val { color: #fff; font-weight: 400; }
 
-.contact-info {
-  padding: 2rem 0;
+.contact-qr {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+  text-align: left;
 }
 
-.info-block {
-  margin-bottom: 2rem;
-}
-
-.info-block img {
-  max-width: 120px;
-  width: 100%;
-  height: auto;
+.contact-qr img {
+  max-width: 160px;
+  width: 160px;
+  height: 160px;
   display: block;
+  margin: 1rem 0 0 0;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.qr-description {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
 
 .info-label {
@@ -593,6 +634,12 @@ section {
 
 .bonus-project .project-card {
   border: 1.5px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+}
+
+.bonus-project .flex-row {
+  flex-direction: column;
 }
 
 /* DOWNLOAD BUTTON */
@@ -632,13 +679,102 @@ footer {
   }
   nav {
     padding: 1rem;
-    height: auto;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    height: 56px;
+    flex-wrap: nowrap;
+    align-items: center;
   }
+  
+  .nav-toggle {
+    display: flex;
+  }
+  
   .nav-links {
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: rgba(247,245,240,0.98);
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .nav-links.active {
+    max-height: 300px;
+  }
+  
+  .nav-links li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  /* Contact Section - Mobile Improvements */
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+  .contact-card h3 {
+    font-size: 18.9px;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-card p {
+    font-size: 11px;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-detail {
+    gap: 0.5rem;
+  }
+
+  .contact-row {
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 15px;
+  }
+
+  .contact-row-label {
+    display: none;
+  }
+
+  .contact-row-val {
+    font-size: 14px;
+  }
+
+  .contact-row--divider {
     margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .download-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 12px;
+  }
+
+  .contact-qr {
+    text-align: center;
+  }
+
+  .contact-info {
+    padding: 1.5rem 0;
+  }
+
+  .info-block img {
+    max-width: 100px;
+  }
+
+  .info-value {
+    font-size: 15px;
   }
 }

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stefan Walter Portfolio</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111'/><rect x='4' y='10' width='24' height='16' rx='2' fill='%232563eb'/><rect x='4' y='10' width='24' height='5' fill='%231d4ed8'/><line x1='10' y1='10' x2='8' y2='6' stroke='white' stroke-width='2'/><line x1='16' y1='10' x2='14' y2='6' stroke='white' stroke-width='2'/><line x1='22' y1='10' x2='20' y2='6' stroke='white' stroke-width='2'/></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><circle cx='16' cy='16' r='8' fill='%232563eb'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,12 @@
 
 <nav>
   <div class="nav-name">Stefan Walter</div>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Navigation toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#ueber-mich">Über mich</a></li>
     <li><a href="#projekte">Projekte</a></li>
     <li><a href="#kompetenzen">Kompetenzen</a></li>
@@ -395,25 +400,41 @@
           </a>
         </div>
       </div>
-    </div>
 
-    <div class="contact-info">
-      <div class="info-block">
+      <div class="contact-qr">
         <div class="info-label">LinkedIn</div>
-        <div class="info-value">QR-Code scannen oder Profil öffnen</div>
+        <div class="qr-description">QR-Code scannen oder Profil öffnen</div>
         <a href="https://www.linkedin.com/in/stefan-walter-aaa853203/" target="_blank" rel="noopener noreferrer">
           <img src="qr-code.svg" alt="LinkedIn QR-Code">
         </a>
-
       </div>
     </div>
   </div>
 </section>
-</main>
 
 <footer>
   Stefan Walter · Pforzheim · stefanw337@gmail.com · Portfolio 2026
 </footer>
+
+</main>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    navToggle.classList.toggle('active');
+  });
+
+  // Close menu when link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      navToggle.classList.remove('active');
+    });
+  });
+</script>
 
 </body>
 </html>
