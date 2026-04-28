@@ -628,18 +628,8 @@ section {
 }
 
 /* BONUS PROJECT */
-.bonus-project {
-  margin-top: 1.5rem;
-}
-
-.bonus-project .project-card {
-  border: 1.5px solid var(--accent);
-  display: flex;
-  flex-direction: column;
-}
-
-.bonus-project .flex-row {
-  flex-direction: column;
+.bonus-project-card {
+  border: 1.5px solid var(--accent) !important;
 }
 
 /* DOWNLOAD BUTTON */
